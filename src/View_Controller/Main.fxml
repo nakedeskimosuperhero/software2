@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.MainController">
+   <children>
+      <Button fx:id="apptBtn" layoutX="35.0" layoutY="60.0" mnemonicParsing="false" onAction="#OpenAppointmentView" text="Schedule Appointment" />
+      <Button fx:id="customerBtn" layoutX="187.0" layoutY="60.0" mnemonicParsing="false" onAction="#OpenCustomerView" text="Add/Update Customer" />
+      <Button fx:id="ViewBtn" layoutX="337.0" layoutY="60.0" mnemonicParsing="false" onAction="#OpenReportsView" text="View Calendar" />
+      <TableView fx:id="appointmentsTblView" layoutX="35.0" layoutY="132.0" onMouseClicked="#AppointmentSelection" prefHeight="231.0" prefWidth="460.0">
+        <columns>
+            <TableColumn fx:id="apptCust" prefWidth="141.0" text="Customer" />
+          <TableColumn fx:id="apptTitle" prefWidth="128.0" text="Title" />
+          <TableColumn fx:id="apptDate" minWidth="3.0" prefWidth="190.0" text="Date" />
+        </columns>
+      </TableView>
+      <RadioButton fx:id="weekRDO" layoutX="87.0" layoutY="105.0" mnemonicParsing="false" onAction="#filterAppointments" text="By Week">
+         <toggleGroup>
+            <ToggleGroup fx:id="filterGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="monthRDO" layoutX="173.0" layoutY="105.0" mnemonicParsing="false" onAction="#filterAppointments" text="By Month" toggleGroup="$filterGroup" />
+      <RadioButton fx:id="allRDO" layoutX="35.0" layoutY="105.0" mnemonicParsing="false" onAction="#filterAppointments" selected="true" text="All" toggleGroup="$filterGroup" />
+   </children>
+</AnchorPane>
